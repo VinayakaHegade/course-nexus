@@ -4,13 +4,13 @@ import SideBarRoutes from "./sidebar-routes";
 const SideBar = () => {
   return (
     <div className="h-full border-r flex flex-col overflow-y-auto bg-white shadow-sm">
-      <div className="p-6 flex items-center gap-3 text-black font-[700]">
+      <section className="p-6 flex items-center gap-2.5">
         <Logo />
-        <p>Course Nexus</p>
-      </div>
-      <div className="flex flex-col w-full">
+        <h1 className="text-black font-[700] text-[18px]">Course Nexus</h1>
+      </section>
+      <section className="flex flex-col w-full">
         <SideBarRoutes />
-      </div>
+      </section>
     </div>
   );
 };
