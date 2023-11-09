@@ -17,7 +17,7 @@ model Course {
   price Float?
 
   categoryId String?
-  categor Category? @relation(fields: [categoryId], references: [id])
+  category Category? @relation(fields: [categoryId], references: [id])
 
   chapters Chapter[]
   attachments Attachment[]
