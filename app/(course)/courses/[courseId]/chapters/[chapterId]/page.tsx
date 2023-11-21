@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 const ChapterIdPage = async ({
   params,
 }: {
-  params: { courseId: string; chpaterId: string };
+  params: { courseId: string; chapterId: string };
 }) => {
   const { userId } = auth();
 
@@ -17,7 +17,7 @@ const ChapterIdPage = async ({
   const { chapter, course, attachments, nextChapter, userProgress, purchase } =
     await getChapter({
       userId,
-      chapterId: params.chpaterId,
+      chapterId: params.chapterId,
       courseId: params.courseId,
     });
 
@@ -34,7 +34,10 @@ const ChapterIdPage = async ({
         <Banner variant="success" label="You already completed this chapter" />
       )}
       {isLocked && (
-        <Banner variant="warning" label="You already completed this chapter." />
+        <Banner
+          variant="warning"
+          label="You need to purchase this course to watch this chapter."
+        />
       )}
     </section>
   );
