@@ -2,6 +2,7 @@ import { getChapter } from "@/actions/get-chapter";
 import { Banner } from "@/components/banner";
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
+import CourseContent from "./_components/course-content";
 
 const ChapterIdPage = async ({
   params,
@@ -39,6 +40,18 @@ const ChapterIdPage = async ({
           label="You need to purchase this course to watch this chapter."
         />
       )}
+      <div className="flex flex-col max-w-4xl mx-auto pb-20">
+        <div className="p-4">
+          <CourseContent
+            chapterId={params.chapterId}
+            title={chapter.title}
+            courseId={params.courseId}
+            nextChapterId={nextChapter?.id}
+            isLocked={isLocked}
+            completeOnEnd={completeOnEnd}
+          />
+        </div>
+      </div>
     </section>
   );
 };
