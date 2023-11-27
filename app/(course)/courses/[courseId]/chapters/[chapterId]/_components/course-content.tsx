@@ -7,6 +7,7 @@ interface CourseContentProps {
   isLocked: boolean;
   completeOnEnd: boolean;
   title: string;
+  description: string;
 }
 
 const CourseContent = ({
@@ -16,8 +17,13 @@ const CourseContent = ({
   isLocked,
   completeOnEnd,
   title,
+  description,
 }: CourseContentProps) => {
-  return <div>Course Content</div>;
+  return !isLocked ? (
+    <p className="mt-2  text-sm">{description}</p>
+  ) : (
+    <p className="mt-2  text-sm">This chapter is locked.</p>
+  );
 };
 
 export default CourseContent;

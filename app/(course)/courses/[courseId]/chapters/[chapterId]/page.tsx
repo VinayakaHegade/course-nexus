@@ -15,7 +15,7 @@ const ChapterIdPage = async ({
     return redirect("/");
   }
 
-  const { chapter, course, attachments, nextChapter, userProgress, purchase } =
+  const { chapter, course, nextChapter, userProgress, purchase } =
     await getChapter({
       userId,
       chapterId: params.chapterId,
@@ -45,6 +45,7 @@ const ChapterIdPage = async ({
           <CourseContent
             chapterId={params.chapterId}
             title={chapter.title}
+            description={chapter.description!}
             courseId={params.courseId}
             nextChapterId={nextChapter?.id}
             isLocked={isLocked}
