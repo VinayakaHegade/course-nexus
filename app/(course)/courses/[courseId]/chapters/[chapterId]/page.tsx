@@ -3,6 +3,7 @@ import { Banner } from "@/components/banner";
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import CourseContent from "./_components/course-content";
+import CourseEnrollutton from "./_components/course-enroll-button";
 
 const ChapterIdPage = async ({
   params,
@@ -41,7 +42,20 @@ const ChapterIdPage = async ({
         />
       )}
       <div className="flex flex-col max-w-4xl mx-auto pb-20">
-        <div className="p-4">
+        <section>
+          <div className="p-4 flex flex-col md:flex-row items-center justify-between">
+            <h2 className="text-2xl font-semibold mb-2">{chapter.title}</h2>
+            {purchase ? (
+              <div>{/* Add Progress Button */}</div>
+            ) : (
+              <CourseEnrollutton
+                courseId={params.courseId}
+                price={course.price!}
+              />
+            )}
+          </div>
+        </section>
+        <section className="p-4">
           <CourseContent
             chapterId={params.chapterId}
             title={chapter.title}
@@ -51,7 +65,7 @@ const ChapterIdPage = async ({
             isLocked={isLocked}
             completeOnEnd={completeOnEnd}
           />
-        </div>
+        </section>
       </div>
     </section>
   );
