@@ -4,6 +4,7 @@ import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import CourseContent from "./_components/course-content";
 import CourseEnrollutton from "./_components/course-enroll-button";
+import { Separator } from "@/components/ui/separator";
 
 const ChapterIdPage = async ({
   params,
@@ -55,6 +56,7 @@ const ChapterIdPage = async ({
             )}
           </div>
         </section>
+        <Separator/>
         <section className="p-4">
           <CourseContent
             chapterId={params.chapterId}
